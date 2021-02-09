@@ -66,7 +66,7 @@ async def main():
 
     OSTREE_REMOTE_ATTRIBUTES = {'name': config.get('ostree', 'ostree_name_remote'),
                                 'gpg-verify': strtobool(config.get('ostree', 'ostree_gpg-verify')),
-                                'url': url_type + config.get('ostree', 'ostree_url_host') + ":" + config.get('ostree', 'ostree_url_port')}
+                                'url': url_type + config.get('ostree', 'ostree_url_host') + ":" + config.get('ostree', 'ostree_url_port') + config.get('ostree', 'ostree_url_path', fallback='')}
 
     if args.debug:
         LOG_LEVEL = logging.DEBUG
